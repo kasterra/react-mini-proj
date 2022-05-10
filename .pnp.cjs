@@ -3213,6 +3213,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["@emotion/is-prop-valid", [\
+        ["npm:1.1.2", {\
+          "packageLocation": "./.yarn/cache/@emotion-is-prop-valid-npm-1.1.2-fba2bc1e57-58b1f2d429.zip/node_modules/@emotion/is-prop-valid/",\
+          "packageDependencies": [\
+            ["@emotion/is-prop-valid", "npm:1.1.2"],\
+            ["@emotion/memoize", "npm:0.7.5"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["@emotion/memoize", [\
         ["npm:0.7.5", {\
           "packageLocation": "./.yarn/cache/@emotion-memoize-npm-0.7.5-e5e7e9eeca-83da8d4a76.zip/node_modules/@emotion/memoize/",\
@@ -3274,6 +3284,41 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@emotion-sheet-npm-1.1.0-40e9c90e06-a4b74e16a8.zip/node_modules/@emotion/sheet/",\
           "packageDependencies": [\
             ["@emotion/sheet", "npm:1.1.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@emotion/styled", [\
+        ["npm:11.8.1", {\
+          "packageLocation": "./.yarn/cache/@emotion-styled-npm-11.8.1-af85f2fe52-67150fa788.zip/node_modules/@emotion/styled/",\
+          "packageDependencies": [\
+            ["@emotion/styled", "npm:11.8.1"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:77e68b38011d64d14bb26009f60c50d26e0dd24be778fd4b3b455e3752aa523d90d6c88ca8653019d0a47d89d89b8b13a8af1771e117a05017c6485e9cc3ffda#npm:11.8.1", {\
+          "packageLocation": "./.yarn/__virtual__/@emotion-styled-virtual-c76a7855dc/0/cache/@emotion-styled-npm-11.8.1-af85f2fe52-67150fa788.zip/node_modules/@emotion/styled/",\
+          "packageDependencies": [\
+            ["@emotion/styled", "virtual:77e68b38011d64d14bb26009f60c50d26e0dd24be778fd4b3b455e3752aa523d90d6c88ca8653019d0a47d89d89b8b13a8af1771e117a05017c6485e9cc3ffda#npm:11.8.1"],\
+            ["@babel/core", null],\
+            ["@babel/runtime", "npm:7.17.9"],\
+            ["@emotion/babel-plugin", "virtual:334323273c1aae37e5adb0599387c082babb8b0c644ed7e82e8598103e9342906367562d0e37b43d3f0fde2e210a74704b5a014309dadb645c4a9684a0e4ff45#npm:11.9.2"],\
+            ["@emotion/is-prop-valid", "npm:1.1.2"],\
+            ["@emotion/react", "virtual:77e68b38011d64d14bb26009f60c50d26e0dd24be778fd4b3b455e3752aa523d90d6c88ca8653019d0a47d89d89b8b13a8af1771e117a05017c6485e9cc3ffda#npm:11.9.0"],\
+            ["@emotion/serialize", "npm:1.0.3"],\
+            ["@emotion/utils", "npm:1.1.0"],\
+            ["@types/babel__core", null],\
+            ["@types/emotion__react", null],\
+            ["@types/react", "npm:18.0.9"],\
+            ["react", "npm:18.1.0"]\
+          ],\
+          "packagePeers": [\
+            "@babel/core",\
+            "@emotion/react",\
+            "@types/babel__core",\
+            "@types/emotion__react",\
+            "@types/react",\
+            "react"\
           ],\
           "linkType": "HARD"\
         }]\
@@ -7129,6 +7174,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["crypto-tracker", "workspace:package/crypto-tracker"],\
             ["@emotion/react", "virtual:77e68b38011d64d14bb26009f60c50d26e0dd24be778fd4b3b455e3752aa523d90d6c88ca8653019d0a47d89d89b8b13a8af1771e117a05017c6485e9cc3ffda#npm:11.9.0"],\
+            ["@emotion/styled", "virtual:77e68b38011d64d14bb26009f60c50d26e0dd24be778fd4b3b455e3752aa523d90d6c88ca8653019d0a47d89d89b8b13a8af1771e117a05017c6485e9cc3ffda#npm:11.8.1"],\
             ["@testing-library/jest-dom", "npm:5.16.4"],\
             ["@testing-library/react", "virtual:77e68b38011d64d14bb26009f60c50d26e0dd24be778fd4b3b455e3752aa523d90d6c88ca8653019d0a47d89d89b8b13a8af1771e117a05017c6485e9cc3ffda#npm:13.2.0"],\
             ["@testing-library/user-event", "virtual:77e68b38011d64d14bb26009f60c50d26e0dd24be778fd4b3b455e3752aa523d90d6c88ca8653019d0a47d89d89b8b13a8af1771e117a05017c6485e9cc3ffda#npm:13.5.0"],\
