@@ -18,6 +18,10 @@ const App = () => {
             background-color: ${theme.bgColor};
             color: ${theme.textColor};
           }
+          a {
+            text-decoration: none;
+            color: inherit;
+          }
         `}
       />
       <Routes />
