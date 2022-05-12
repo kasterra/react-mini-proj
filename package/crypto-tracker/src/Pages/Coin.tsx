@@ -1,6 +1,13 @@
 import styled from "@emotion/styled";
 import React, { useEffect, useState } from "react";
-import { useLocation, useParams } from "react-router-dom";
+import {
+  Link,
+  Outlet,
+  useHref,
+  useLocation,
+  useMatch,
+  useParams,
+} from "react-router-dom";
 
 interface RouteState {
   name: string;
@@ -103,6 +110,26 @@ const OverviewItem = styled.div`
 const Description = styled.p`
   margin: 20px 0px;
 `;
+const Tabs = styled.div`
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+`;
+const Tab = styled.span<{ isActive: boolean }>`
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 400;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 7px 0px;
+  margin: 25px 0px;
+  border-radius: 10px;
+  color: ${(props) =>
+    props.isActive ? props.theme.accentColor : props.theme.textColor};
+  a {
+    display: block;
+  }
+`;
 
 const Coin = () => {
   const { state } = useLocation() as { state: RouteState };
@@ -110,6 +137,8 @@ const Coin = () => {
   const [info, setInfo] = useState<InfoData>();
   const [priceInfo, setPriceInfo] = useState<PriceData>();
   const [isLoading, setIsLoading] = useState(true);
+  const chartMatch = useMatch(":coinId/chart");
+  const priceMatch = useMatch(":coinId/price");
   useEffect(() => {
     (async () => {
       const infoData = await (
@@ -159,6 +188,17 @@ const Coin = () => {
               <span>{priceInfo?.max_supply}</span>
             </OverviewItem>
           </Overview>
+
+          <Tabs>
+            <Tab isActive={!!chartMatch}>
+              <Link to="chart">chart</Link>
+            </Tab>
+            <Tab isActive={!!priceMatch}>
+              <Link to="price">price</Link>
+            </Tab>
+          </Tabs>
+
+          <Outlet />
         </>
       )}
     </Container>
