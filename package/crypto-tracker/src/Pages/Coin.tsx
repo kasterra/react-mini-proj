@@ -1,13 +1,13 @@
 import styled from "@emotion/styled";
-import React, { useEffect, useState } from "react";
+import { useQuery } from "react-query";
 import {
   Link,
   Outlet,
-  useHref,
   useLocation,
   useMatch,
   useParams,
 } from "react-router-dom";
+import { fetchCoinInfo } from "../api";
 
 interface RouteState {
   name: string;
@@ -133,74 +133,76 @@ const Tab = styled.span<{ isActive: boolean }>`
 
 const Coin = () => {
   const { state } = useLocation() as { state: RouteState };
-  const { coinId } = useParams();
-  const [info, setInfo] = useState<InfoData>();
-  const [priceInfo, setPriceInfo] = useState<PriceData>();
-  const [isLoading, setIsLoading] = useState(true);
+  const { coinId } = useParams() as { coinId: string };
   const chartMatch = useMatch(":coinId/chart");
   const priceMatch = useMatch(":coinId/price");
-  useEffect(() => {
-    (async () => {
-      const infoData = await (
-        await fetch(`https://api.coinpaprika.com/v1/coins/${coinId}`)
-      ).json();
-      const priceData = await (
-        await fetch(`https://api.coinpaprika.com/v1/tickers/${coinId}`)
-      ).json();
-      setInfo(infoData);
-      setPriceInfo(priceData);
-      setIsLoading(false);
-    })();
-  }, [coinId]);
+  const { isLoading: infoLoading, data: infoData } = useQuery<InfoData>(
+    ["info", coinId],
+    () => fetchCoinInfo(coinId)
+  );
+  const { isLoading: tickersLoading, data: tickersData } = useQuery<PriceData>(
+    ["tickers", coinId],
+    () => fetchCoinInfo(coinId)
+  );
+
   return (
     <Container>
       <Header>
         <Title>
-          {state?.name ? state.name : isLoading ? "Loading..." : info?.name}
+          {state?.name
+            ? state.name
+            : infoLoading
+            ? "Loading..."
+            : infoData?.name}
         </Title>
       </Header>
-      {isLoading ? (
-        <Loader>Loading...</Loader>
-      ) : (
-        <>
-          <Overview>
-            <OverviewItem>
-              <span>Rank:</span>
-              <span>{info?.rank}</span>
-            </OverviewItem>
-            <OverviewItem>
-              <span>Symbol:</span>
-              <span>${info?.symbol}</span>
-            </OverviewItem>
-            <OverviewItem>
-              <span>Open Source:</span>
-              <span>{info?.open_source ? "Yes" : "No"}</span>
-            </OverviewItem>
-          </Overview>
-          <Description>{info?.description}</Description>
+
+      <>
+        {infoLoading ? (
+          <Loader>Loading...</Loader>
+        ) : (
+          <>
+            <Overview>
+              <OverviewItem>
+                <span>Rank:</span>
+                <span>{infoData!.rank}</span>
+              </OverviewItem>
+              <OverviewItem>
+                <span>Symbol:</span>
+                <span>${infoData!.symbol}</span>
+              </OverviewItem>
+              <OverviewItem>
+                <span>Open Source:</span>
+                <span>{infoData!.open_source ? "Yes" : "No"}</span>
+              </OverviewItem>
+            </Overview>
+            <Description>{infoData!.description}</Description>
+          </>
+        )}
+        {tickersLoading ? (
+          <Loader>Loading...</Loader>
+        ) : (
           <Overview>
             <OverviewItem>
               <span>Total Suply:</span>
-              <span>{priceInfo?.total_supply}</span>
+              <span>{tickersData?.total_supply}</span>
             </OverviewItem>
             <OverviewItem>
               <span>Max Supply:</span>
-              <span>{priceInfo?.max_supply}</span>
+              <span>{tickersData?.max_supply}</span>
             </OverviewItem>
           </Overview>
-
-          <Tabs>
-            <Tab isActive={!!chartMatch}>
-              <Link to="chart">chart</Link>
-            </Tab>
-            <Tab isActive={!!priceMatch}>
-              <Link to="price">price</Link>
-            </Tab>
-          </Tabs>
-
-          <Outlet />
-        </>
-      )}
+        )}
+        <Tabs>
+          <Tab isActive={!!chartMatch}>
+            <Link to="chart">chart</Link>
+          </Tab>
+          <Tab isActive={!!priceMatch}>
+            <Link to="price">price</Link>
+          </Tab>
+        </Tabs>
+        <Outlet />
+      </>
     </Container>
   );
 };
