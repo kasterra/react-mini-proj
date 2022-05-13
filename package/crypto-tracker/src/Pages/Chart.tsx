@@ -25,11 +25,16 @@ const Chart = () => {
         "Loading chart..."
       ) : (
         <ApexChart
-          type="line"
+          type="candlestick"
           series={[
             {
               name: "price",
-              data: data!.map((price) => price.close),
+              data: data!.map((price) => {
+                return {
+                  x: Date.parse(price.time_close),
+                  y: [price.open, price.high, price.low, price.close],
+                };
+              }),
             },
           ]}
           options={{
