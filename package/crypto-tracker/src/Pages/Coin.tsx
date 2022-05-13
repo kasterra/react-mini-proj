@@ -7,7 +7,7 @@ import {
   useMatch,
   useParams,
 } from "react-router-dom";
-import { fetchCoinInfo } from "../api";
+import { fetchCoinInfo, fetchCoinTickers } from "../api";
 
 interface RouteState {
   name: string;
@@ -78,7 +78,7 @@ const Loader = styled.span`
 
 const Container = styled.div`
   padding: 0px 20px;
-  max-width: 480px;
+  max-width: 550px;
   margin: 0 auto;
 `;
 
@@ -142,7 +142,7 @@ const Coin = () => {
   );
   const { isLoading: tickersLoading, data: tickersData } = useQuery<PriceData>(
     ["tickers", coinId],
-    () => fetchCoinInfo(coinId)
+    () => fetchCoinTickers(coinId)
   );
 
   return (
@@ -201,7 +201,7 @@ const Coin = () => {
             <Link to="price">price</Link>
           </Tab>
         </Tabs>
-        <Outlet />
+        <Outlet context={{ coinId }} />
       </>
     </Container>
   );
