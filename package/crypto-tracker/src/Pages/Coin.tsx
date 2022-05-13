@@ -8,67 +8,14 @@ import {
   useParams,
 } from "react-router-dom";
 import { fetchCoinInfo, fetchCoinTickers } from "../api";
-
-interface RouteState {
-  name: string;
-}
-interface InfoData {
-  id: string;
-  name: string;
-  symbol: string;
-  rank: number;
-  is_new: boolean;
-  is_active: boolean;
-  type: string;
-  description: string;
-  message: string;
-  open_source: boolean;
-  started_at: string;
-  development_status: string;
-  hardware_wallet: boolean;
-  proof_type: string;
-  org_structure: string;
-  hash_algorithm: string;
-  first_data_at: string;
-  last_data_at: string;
-}
-interface PriceData {
-  id: string;
-  name: string;
-  symbol: string;
-  rank: number;
-  circulating_supply: number;
-  total_supply: number;
-  max_supply: number;
-  beta_value: number;
-  first_data_at: string;
-  last_updated: string;
-  quotes: {
-    USD: {
-      ath_date: string;
-      ath_price: number;
-      market_cap: number;
-      market_cap_change_24h: number;
-      percent_change_1h: number;
-      percent_change_1y: number;
-      percent_change_6h: number;
-      percent_change_7d: number;
-      percent_change_12h: number;
-      percent_change_15m: number;
-      percent_change_24h: number;
-      percent_change_30d: number;
-      percent_change_30m: number;
-      percent_from_price_ath: number;
-      price: number;
-      volume_24h: number;
-      volume_24h_change_24h: number;
-    };
-  };
-}
+import { ICoinInfo, ICoinPriceData, RouteState } from "../types/apiTypes";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHouse } from "@fortawesome/free-solid-svg-icons";
 
 const Title = styled.h1`
   font-size: 48px;
   color: ${(props) => props.theme.accentColor};
+  text-align: center;
 `;
 
 const Loader = styled.span`
@@ -84,7 +31,8 @@ const Container = styled.div`
 
 const Header = styled.header`
   height: 15vh;
-  display: flex;
+  display: grid;
+  grid-template-columns: 15% 1fr 15%;
   justify-content: center;
   align-items: center;
 `;
@@ -131,23 +79,35 @@ const Tab = styled.span<{ isActive: boolean }>`
   }
 `;
 
+const BackBtn = styled(Link)`
+  display: flex;
+  justify-content: center;
+  & svg {
+    width: 30px;
+    height: 30px;
+  }
+`;
+
 const Coin = () => {
   const { state } = useLocation() as { state: RouteState };
   const { coinId } = useParams() as { coinId: string };
   const chartMatch = useMatch(":coinId/chart");
   const priceMatch = useMatch(":coinId/price");
-  const { isLoading: infoLoading, data: infoData } = useQuery<InfoData>(
+  const { isLoading: infoLoading, data: infoData } = useQuery<ICoinInfo>(
     ["info", coinId],
     () => fetchCoinInfo(coinId)
   );
-  const { isLoading: tickersLoading, data: tickersData } = useQuery<PriceData>(
-    ["tickers", coinId],
-    () => fetchCoinTickers(coinId)
-  );
+  const { isLoading: tickersLoading, data: tickersData } =
+    useQuery<ICoinPriceData>(["tickers", coinId], () =>
+      fetchCoinTickers(coinId)
+    );
 
   return (
     <Container>
       <Header>
+        <BackBtn to="/">
+          <FontAwesomeIcon icon={faHouse} />
+        </BackBtn>
         <Title>
           {state?.name
             ? state.name

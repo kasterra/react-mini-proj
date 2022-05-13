@@ -3,6 +3,7 @@ import styled from "@emotion/styled";
 import { Link } from "react-router-dom";
 import { useQuery } from "react-query";
 import { fetchCoins } from "../api";
+import { ICoin } from "../types/apiTypes";
 
 const Container = styled.div`
   padding: 0px 20px;
@@ -47,16 +48,6 @@ const Img = styled.img`
   height: 35px;
   margin-right: 10px;
 `;
-
-interface ICoin {
-  id: string;
-  name: string;
-  symbol: string;
-  rank: number;
-  is_new: boolean;
-  is_active: boolean;
-  type: string;
-}
 
 export const Home = () => {
   const { isLoading, data: coins } = useQuery<ICoin[]>("allCoins", fetchCoins);
