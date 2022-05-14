@@ -4,7 +4,7 @@ import "./index.css";
 import App from "./App";
 import { ThemeProvider } from "@emotion/react";
 import { QueryClient, QueryClientProvider } from "react-query";
-import { theme } from "./theme";
+import { darkTheme } from "./theme";
 
 const queryClient = new QueryClient();
 
@@ -14,7 +14,7 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
-      <ThemeProvider theme={theme}>
+      <ThemeProvider theme={darkTheme}>
         <App />
       </ThemeProvider>
     </QueryClientProvider>
