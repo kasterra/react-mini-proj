@@ -7280,7 +7280,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react-router-dom", "virtual:77e68b38011d64d14bb26009f60c50d26e0dd24be778fd4b3b455e3752aa523d90d6c88ca8653019d0a47d89d89b8b13a8af1771e117a05017c6485e9cc3ffda#npm:6.3.0"],\
             ["react-scripts", "virtual:77e68b38011d64d14bb26009f60c50d26e0dd24be778fd4b3b455e3752aa523d90d6c88ca8653019d0a47d89d89b8b13a8af1771e117a05017c6485e9cc3ffda#npm:5.0.1"],\
             ["typescript", "patch:typescript@npm%3A4.6.4#~builtin<compat/typescript>::version=4.6.4&hash=bda367"],\
-            ["web-vitals", "npm:2.1.4"]\
+            ["web-vitals", "npm:2.1.4"],\
+            ["zustand", "virtual:77e68b38011d64d14bb26009f60c50d26e0dd24be778fd4b3b455e3752aa523d90d6c88ca8653019d0a47d89d89b8b13a8af1771e117a05017c6485e9cc3ffda#npm:4.0.0-rc.1"]\
           ],\
           "linkType": "SOFT"\
         }]\
@@ -17780,6 +17781,28 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["use-sync-external-store", [\
+        ["npm:1.1.0", {\
+          "packageLocation": "./.yarn/cache/use-sync-external-store-npm-1.1.0-dcd59c7439-8993a0b642.zip/node_modules/use-sync-external-store/",\
+          "packageDependencies": [\
+            ["use-sync-external-store", "npm:1.1.0"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:7f3656c6e59b8aebda6ed0d85499b09f7289310291a73459d8d7d070b97df7bc04500ccb55c7c739ed7ec6d77c028e5f3dbea3d1f6317cadec55f0cbdc7a64eb#npm:1.1.0", {\
+          "packageLocation": "./.yarn/__virtual__/use-sync-external-store-virtual-e09f2705c4/0/cache/use-sync-external-store-npm-1.1.0-dcd59c7439-8993a0b642.zip/node_modules/use-sync-external-store/",\
+          "packageDependencies": [\
+            ["use-sync-external-store", "virtual:7f3656c6e59b8aebda6ed0d85499b09f7289310291a73459d8d7d070b97df7bc04500ccb55c7c739ed7ec6d77c028e5f3dbea3d1f6317cadec55f0cbdc7a64eb#npm:1.1.0"],\
+            ["@types/react", "npm:18.0.9"],\
+            ["react", "npm:18.1.0"]\
+          ],\
+          "packagePeers": [\
+            "@types/react",\
+            "react"\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["util-deprecate", [\
         ["npm:1.0.2", {\
           "packageLocation": "./.yarn/cache/util-deprecate-npm-1.0.2-e3fe1a219c-474acf1146.zip/node_modules/util-deprecate/",\
@@ -18663,6 +18686,33 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/yocto-queue-npm-0.1.0-c6c9a7db29-f77b3d8d00.zip/node_modules/yocto-queue/",\
           "packageDependencies": [\
             ["yocto-queue", "npm:0.1.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["zustand", [\
+        ["npm:4.0.0-rc.1", {\
+          "packageLocation": "./.yarn/cache/zustand-npm-4.0.0-rc.1-66db6817b5-c88ae96286.zip/node_modules/zustand/",\
+          "packageDependencies": [\
+            ["zustand", "npm:4.0.0-rc.1"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:77e68b38011d64d14bb26009f60c50d26e0dd24be778fd4b3b455e3752aa523d90d6c88ca8653019d0a47d89d89b8b13a8af1771e117a05017c6485e9cc3ffda#npm:4.0.0-rc.1", {\
+          "packageLocation": "./.yarn/__virtual__/zustand-virtual-7f3656c6e5/0/cache/zustand-npm-4.0.0-rc.1-66db6817b5-c88ae96286.zip/node_modules/zustand/",\
+          "packageDependencies": [\
+            ["zustand", "virtual:77e68b38011d64d14bb26009f60c50d26e0dd24be778fd4b3b455e3752aa523d90d6c88ca8653019d0a47d89d89b8b13a8af1771e117a05017c6485e9cc3ffda#npm:4.0.0-rc.1"],\
+            ["@types/immer", null],\
+            ["@types/react", "npm:18.0.9"],\
+            ["immer", null],\
+            ["react", "npm:18.1.0"],\
+            ["use-sync-external-store", "virtual:7f3656c6e59b8aebda6ed0d85499b09f7289310291a73459d8d7d070b97df7bc04500ccb55c7c739ed7ec6d77c028e5f3dbea3d1f6317cadec55f0cbdc7a64eb#npm:1.1.0"]\
+          ],\
+          "packagePeers": [\
+            "@types/immer",\
+            "@types/react",\
+            "immer",\
+            "react"\
           ],\
           "linkType": "HARD"\
         }]\
