@@ -1,12 +1,14 @@
-import React from "react";
 import normalize from "emotion-normalize";
-import { css, Global, useTheme } from "@emotion/react";
+import { css, Global, ThemeProvider } from "@emotion/react";
 import Routes from "./Pages/Routes";
+import { useUIStore } from "./store/UIStore";
+import { darkTheme, lightTheme } from "./theme";
 
 const App = () => {
-  const theme = useTheme();
+  const isDarkTheme = useUIStore((state) => state.isDarkTheme);
+  const theme = isDarkTheme ? darkTheme : lightTheme;
   return (
-    <>
+    <ThemeProvider theme={isDarkTheme ? darkTheme : lightTheme}>
       <Global
         styles={css`
           ${normalize}
@@ -25,7 +27,7 @@ const App = () => {
         `}
       />
       <Routes />
-    </>
+    </ThemeProvider>
   );
 };
 

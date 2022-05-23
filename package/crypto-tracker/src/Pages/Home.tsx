@@ -4,11 +4,13 @@ import { Link } from "react-router-dom";
 import { useQuery } from "react-query";
 import { fetchCoins } from "../api";
 import { ICoin } from "../types/apiTypes";
+import { useUIStore } from "../store/UIStore";
 
 const Container = styled.div`
   padding: 0px 20px;
   max-width: 480px;
   margin: 0 auto;
+  background-color: ${(props) => props.theme.bgColor};
 `;
 
 const Header = styled.div`
@@ -21,10 +23,10 @@ const Header = styled.div`
 const CoinsList = styled.ul``;
 
 const Coin = styled.li`
-  background-color: white;
+  background-color: ${(props) => props.theme.bgColor};
   margin-bottom: 10px;
   border-radius: 15px;
-  color: ${(props) => props.theme.bgColor};
+  color: ${(props) => props.theme.textColor};
   a {
     display: flex;
     align-items: center;
@@ -51,10 +53,12 @@ const Img = styled.img`
 
 export const Home = () => {
   const { isLoading, data: coins } = useQuery<ICoin[]>("allCoins", fetchCoins);
+  const toggleDarkTheme = useUIStore((state) => state.toggleDarkTheme);
   return (
     <Container>
       <Header>
         <Title>Coin</Title>
+        <button onClick={toggleDarkTheme}>Toggle Mode</button>
       </Header>
       {isLoading ? (
         "Loading"
