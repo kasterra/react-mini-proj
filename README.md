@@ -17,9 +17,7 @@
 
 ## 미니 프로젝트 - Coin tracker
 
-코인 API : https://api.coinpaprika.com/
-
-<img src="https://img.shields.io/badge/React Query-fff?style=for-the-badge&logo=React Query&logoColor=#61DAFB"/>
+자세한 사항은 [해당 Readme](package/crypto-tracker/README.md)로
 
 ## DX(Developer Experience)를 위하여
 

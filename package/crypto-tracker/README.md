@@ -1,46 +1,17 @@
-# Getting Started with Create React App
+# Crypto Tracker
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+암호화폐의 가격들을 조회하는 간단한 웹 서비스 입니다. [CoinPaprika의 API](https://api.coinpaprika.com/)를 사용하였습니다.
 
-## Available Scripts
+## 🛠️ Stacks
 
-In the project directory, you can run:
+<img src="https://img.shields.io/badge/TypeScript-fff?style=for-the-badge&logo=TypeScript"/>
+<img src="https://img.shields.io/badge/React-fff?style=for-the-badge&logo=React"/>
+<img src="https://img.shields.io/badge/Emotion-fff?style=for-the-badge&logo=Emotion"/>
+<img src="https://img.shields.io/badge/React%20Query-fff?style=for-the-badge&logo=React%20Query"/>
+<img src="https://img.shields.io/badge/Zustand-fff?style=for-the-badge"/>
+<img src="https://img.shields.io/badge/apexChart-fff?style=for-the-badge"/>
 
-### `npm start`
+## 📗 Learned while development
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+- 컴포넌트 안에 또 다른 컴포넌트를 Route에 따라서 렌더링 할 때 사용하는 `<Outlet>`
+- TypeScript에서 emotion theme을 사용할때 `types/emotion.d.ts`에 `Theme`인터페이스를 오버로딩 해야 하는것
