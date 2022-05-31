@@ -1,22 +1,25 @@
 import React from "react";
+import { Global, css } from "@emotion/react";
+import normalize from "emotion-normalize";
+import Routes from "./pages/Routes";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Global
+        styles={css`
+          ${normalize}
+          * {
+            box-sizing: border-box;
+          }
+          a {
+            text-decoration: none;
+            color: inherit;
+          }
+        `}
+      />
+      <Routes />
+    </>
   );
 }
 
